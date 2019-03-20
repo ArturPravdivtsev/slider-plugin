@@ -1,0 +1,82 @@
+{
+    "name": "slider-plugin",
+    "version": "1.0.0",
+    "description": "Slider plugin using TDD, MVC and TS",
+    "main": "src/index.js",
+    "scripts": {
+        "test": "karma start --single-run --no-auto-watch",
+        "test:watch": "karma start",
+        "prebuild": "rimraf lib",
+        "build": "webpack --env production",
+        "start": "nodemon --watch webpack.config.js --exec \"webpack --progress --watch --env \""
+    },
+    "keywords": [
+        "webpack",
+        "karma",
+        "jasmine",
+        "babel",
+        "istanbul",
+        "starter",
+        "boilerplate"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ArturPravdivtsev/slider-plugin.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/ArturPravdivtsev/slider-plugin/issues"
+    },
+    "homepage": "https://github.com/ArturPravdivtsev/slider-plugin#readme",
+    "devDependencies": {
+        "@babel/cli": "7.1.0",
+        "@babel/core": "7.1.0",
+        "@babel/preset-env": "7.1.0",
+        "babel-eslint": "^9.0.0",
+        "babel-loader": "^8.0.2",
+        "babel-plugin-add-module-exports": "^1.0.0",
+        "babel-plugin-istanbul": "^5.0.1",
+        "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
+        "chalk": "^2.4.1",
+        "clean-webpack-plugin": "^0.1.19",
+        "eslint": "^5.6.0",
+        "eslint-config-react-app": "^3.0.8",
+        "eslint-friendly-formatter": "^4.0.1",
+        "eslint-loader": "^2.1.1",
+        "eslint-plugin-compat": "^2.5.1",
+        "eslint-plugin-flowtype": "^3.4.2",
+        "eslint-plugin-import": "^2.14.0",
+        "eslint-plugin-jasmine": "^2.10.1",
+        "eslint-plugin-jsx-a11y": "^6.2.1",
+        "eslint-plugin-node": "^7.0.1",
+        "eslint-plugin-promise": "^4.0.1",
+        "eslint-plugin-react": "^7.12.4",
+        "friendly-errors-webpack-plugin": "^1.7.0",
+        "html-webpack-plugin": "^3.2.0",
+        "jasmine-core": "^3.2.1",
+        "karma": "^3.0.0",
+        "karma-chrome-launcher": "^2.2.0",
+        "karma-coverage": "^1.1.2",
+        "karma-fixture": "^0.2.6",
+        "karma-html2js-preprocessor": "^1.1.0",
+        "karma-jasmine": "^1.1.2",
+        "karma-json-fixtures-preprocessor": "0.0.6",
+        "karma-mocha-reporter": "^2.2.5",
+        "karma-sourcemap-loader": "^0.3.7",
+        "karma-webpack": "^3.0.5",
+        "nodemon": "^1.18.10",
+        "rimraf": "^2.6.3",
+        "terser-webpack-plugin": "1.1.0",
+        "webpack": "^4.20.1",
+        "webpack-cli": "^3.3.0",
+        "webpack-merge": "^4.1.4"
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions"
+    ],
+    "engines": {
+        "node": ">=6.9.0"
+    }
+}
