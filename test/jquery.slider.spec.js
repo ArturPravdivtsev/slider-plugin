@@ -6,12 +6,19 @@ describe("jQuery", function() {
 
 describe('jQuery.mySlider', function() {
     beforeEach(function() {
-        var fixture = '<input type="range" class="range" />';
-
-        document.body.insertAdjacentHTML(
-            'afterbegin',
-            fixture);
+        fixture.base = 'base/test';
+        fixture.load('fixture.html');
+        // var fixture = '<input type="range" class="range" />';
+        // document.body.insertAdjacentHTML(
+        //     'afterbegin',
+        //     fixture);
     });
+
+    // remove the html fixture from the DOM
+    afterEach(function() {
+        fixture.cleanup();
+    });
+
     it('должен быть доступным в объекте jQuery', function() {
         expect($.fn.mySlider).toBeDefined();
     });

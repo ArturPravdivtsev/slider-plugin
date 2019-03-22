@@ -10,8 +10,6 @@ const webpackConfig = merge([{
 ]);
 
 module.exports = config => {
-    const src = './src/**/*.js';
-    const tests = './test/index.js';
 
     process.env.BABEL_ENV = 'karma';
 
@@ -35,22 +33,20 @@ module.exports = config => {
 
         // list of files / patterns to load in the browser
         files: [{
-                pattern: "lib/**/jquery-2.0.3.min.js",
+                pattern: 'lib/**/jquery-2.0.3.min.js',
                 watched: false,
                 included: true,
                 served: true
             },
             {
-                pattern: "lib/**/jasmine-jquery.js",
+                pattern: 'lib/**/jasmine-jquery.js',
                 watched: false,
                 included: true,
                 served: true
             },
-            {
-                pattern: 'fixtures/base/path/**/*',
-            },
-            src,
-            tests
+            'src/*.js',
+            'test/*.js',
+            'test/*.html'
         ],
 
         // list of files to exclude
@@ -59,14 +55,9 @@ module.exports = config => {
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            [src]: ['webpack'],
-            [tests]: ['webpack', 'sourcemap'],
+            'src/*.js': ['webpack'],
+            'test/*.js': ['webpack', 'sourcemap'],
             '**/*.html': ['html2js'],
-            '**/*.json': ['json_fixtures']
-        },
-
-        jsonFixturesPreprocessor: {
-            variableName: '__json__'
         },
 
         webpack: webpackConfig,
@@ -75,12 +66,11 @@ module.exports = config => {
             'karma-mocha-reporter',
             'karma-coverage',
             'karma-webpack',
-            'karma-chrome-launcher',
+            'karma-phantomjs-launcher',
             'karma-sourcemap-loader',
             'karma-jasmine',
             'karma-fixture',
             'karma-html2js-preprocessor',
-            'karma-json-fixtures-preprocessor',
         ],
 
         // web server port
@@ -94,7 +84,7 @@ module.exports = config => {
 
         // start these browsers
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-        browsers: ['Chrome'],
+        browsers: ['PhantomJS'],
 
         // Continuous Integration mode
         // if true, Karma captures browsers, runs the tests and exits
