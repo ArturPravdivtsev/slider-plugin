@@ -21,7 +21,7 @@ module.exports = config => {
         frameworks: ['jasmine', 'fixture'],
 
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['mocha', 'coverage'],
+        reporters: ['mocha', 'progress', 'coverage'],
 
         coverageReporter: {
             dir: 'coverage',
@@ -46,7 +46,13 @@ module.exports = config => {
             },
             'src/*.js',
             'test/*.js',
-            'test/*.html'
+            'test/*.html',
+            {
+                pattern: 'test/fixture/*.html',
+                watched: false,
+                served: true,
+                included: false
+            }
         ],
 
         // list of files to exclude
@@ -57,7 +63,7 @@ module.exports = config => {
         preprocessors: {
             'src/*.js': ['webpack'],
             'test/*.js': ['webpack', 'sourcemap'],
-            '**/*.html': ['html2js'],
+            // '**/*.html': ['html2js'],
         },
 
         webpack: webpackConfig,

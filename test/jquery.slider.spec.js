@@ -5,9 +5,10 @@ describe("jQuery", function() {
 });
 
 describe('jQuery.mySlider', function() {
+    var frag;
     beforeEach(function() {
-        fixture.base = 'base/test';
-        fixture.load('fixture.html');
+        jasmine.getFixtures().fixturesPath = 'base/test/fixture';
+        frag = $(readFixtures('fixture.html'));
         // var fixture = '<input type="range" class="range" />';
         // document.body.insertAdjacentHTML(
         //     'afterbegin',
@@ -26,7 +27,7 @@ describe('jQuery.mySlider', function() {
         expect($.fn.mySlider.defaults).toBeDefined();
     });
     it('должен по умолчанию применять класс range к обертке', function() {
-        expect(document.getElementsByClassName('range')).toBeDefined();
+        expect(frag).toContainText('F');
         // expect(document.getElementsByClassName('range')).toBeDefined();
     });
 });
